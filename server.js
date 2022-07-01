@@ -25,7 +25,7 @@ app.get('/', (req, res) =>
     }
     catch
     {
-        rollbar.critical('landing page not loaded')
+        rollbar.critical('landing page not loaded')                          //<--rollbar
     }
 })
 
@@ -56,7 +56,7 @@ app.get('/api/robots/five', (req, res) => {
         res.status(200).send({choices, compDuo})
     } catch (error) {
         console.log('ERROR GETTING FIVE BOTS', error)
-        rollbar.error("Couldn't load user bots")
+        rollbar.error("Couldn't load user bots")                             //<--rollbar
         res.sendStatus(400)
     }
 })
@@ -88,7 +88,7 @@ app.post('/api/duel', (req, res) => {
         }
     } catch (error) {
         console.log('ERROR DUELING', error)
-        rollbar.error('Error dueling');
+        rollbar.error('Error dueling');                                       //<--rollbar
         res.sendStatus(400)
     }
 })
@@ -98,7 +98,7 @@ app.get('/api/player', (req, res) => {
         res.status(200).send(playerRecord)
     } catch (error) {
         console.log('ERROR GETTING PLAYER STATS', error)
-        rollbar.error('Error getting stats')
+        rollbar.error('Error getting stats')                                  //<--rollbar
         res.sendStatus(400)
     }
 })
